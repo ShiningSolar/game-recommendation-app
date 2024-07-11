@@ -32,7 +32,7 @@ with col2:
         # Jika tomblo diklik maka judul game akan disimpan pada query URL
         # dan halaman akan beralih ke halaman rekomendasi game
         st.query_params.game_name = selected_game
-        st.switch_page("pages\🎮_Rekomendasi_Game.py")
+        st.switch_page("pages/🎮_Rekomendasi_Game.py")
 # Game Terpopuler
 # Membuat wadah untuk menampilkan game terpopuler
 with st.container(border=True):
@@ -54,6 +54,6 @@ with st.container(border=True):
         # sesuai dengan judul game yang dipilih
         if cont.button(title, use_container_width = True):
             st.query_params.game_name = title
-            st.switch_page("pages\🎮_Rekomendasi_Game.py")
+            st.switch_page("pages/🎮_Rekomendasi_Game.py")
         index = index + 1
 

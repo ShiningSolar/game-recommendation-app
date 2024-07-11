@@ -20,7 +20,7 @@ if st.session_state['details_page'] == True:
   # maka variabel details_page diatur ke False 
   # dan halaman dialihkan ke halaman rekomendasi game
   st.session_state['details_page'] = False
-  st.switch_page("pages\🎮_Rekomendasi_Game.py")
+  st.switch_page("pages/🎮_Rekomendasi_Game.py")
 # Mendeklarasikan fungsi show_data 
 # yang menampilkan data game di halaman berdasarkan indeks yang diberikan  
 def show_data(index):

@@ -18,7 +18,7 @@ st.set_page_config(
 # Untuk mengalihkan halaman ke halaman katalog game jika ada genre yang dipilih
 if 'selected_genre' in st.session_state and st.session_state.selected_genre in genres:
     st.session_state.list_genre = st.session_state.selected_genre
-    st.switch_page("pages\📃_Katalog_Game.py")
+    st.switch_page("pages/📃_Katalog_Game.py")
 # Mendeklarasikan fungsi untuk menampilkan daftar game rekomendasi dalam format grid 4x3
 def view_list(data):
     row1 = st.columns(3)
@@ -117,7 +117,7 @@ if 'details_page' not in st.session_state :
     st.session_state['details_page'] = False
 elif st.session_state['details_page'] == True:
     st.session_state['details_page'] = False
-    st.switch_page("pages\🎮_Rekomendasi_Game.py")
+    st.switch_page("pages/🎮_Rekomendasi_Game.py")
 
 if "game_name" in st.query_params:
     # Mengambil nama game dari parameter
@@ -139,4 +139,4 @@ else:
         with st.container(border = True):
             st.header('🔴 PILIH GAME TERLEBIH DAHULU 🔴')
             st.page_link("🏠_Beranda.py", label="Beranda", icon="🏠", use_container_width = True)
-            st.page_link("pages\📃_Katalog_Game.py", label="Katalog Game", icon="📃", use_container_width = True)
+            st.page_link("pages/📃_Katalog_Game.py", label="Katalog Game", icon="📃", use_container_width = True)
