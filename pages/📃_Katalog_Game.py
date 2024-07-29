@@ -42,7 +42,10 @@ def show_data(index):
       # Menampilkan tombol dengan judul game. 
       # Jika tombol diklik, fungsi change_page akan dipanggil dengan argumen title
       # untuk mengubah halaman ke halaman detail game
-      cont.button(title, on_click = change_page, args = [title], use_container_width = True)
+      if cont.button(title, use_container_width = True):
+        st.session_state['saved_name'] = title
+        st.switch_page("pages/🎮_Rekomendasi_Game.py")
+        #cont.button(title, on_click = change_page, args = [title], use_container_width = True)
       index = index + 1
     else :
       # Jika indeks sudah tidak valid (melebihi jumlah game), maka iterasi berhenti
