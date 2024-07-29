@@ -132,5 +132,5 @@ def get_recommendation_data(game_name):
 
 def change_page(name):
     st.session_state['saved_name'] = name
-    st.query_params.game_name = st.session_state['saved_name']
+    #st.query_params.game_name = st.session_state['saved_name']
     st.session_state['details_page'] = True
