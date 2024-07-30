@@ -129,7 +129,7 @@ def selected_game_details(game_name):
 
    return title, genres, tanggal, website, movies, list_media, about, review, developer, publisher, header_img
 
-@st.cache_data
+# @st.cache_data
 def get_recommendation_data(game_name):
     recommendations = hybrid_recommendation(game_name)
     title, genres, tanggal, website, movies, list_media, about, review, developer, publisher, header_img = selected_game_details(game_name)
