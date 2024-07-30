@@ -98,7 +98,7 @@ def genre_filtering(list_genre = []):
       filtered_games = df.sort_values('title', ascending=True).reset_index(drop = True)
    return filtered_games
 
-# @st.cache_data
+@st.cache_data
 def selected_game_details(game_name):
    game_id = games[games['title'] == game_name]['app_id'].values[0] 
    game_idx = games[games['app_id'] == game_id].index[0]
@@ -117,19 +117,19 @@ def selected_game_details(game_name):
    else:
       movies = list_details.loc['movies']
       list_media = screenshots
-   text = list_details.loc['about'].split('. ')
-   about = ""
-   for sentence in text:
-      trans = ts.translate_text(sentence, from_language='en', to_language='id')
-      about = about + trans + ". "
-   review = str(ts.translate_text(list_details.loc['rating'], from_language='en', to_language='id'))+' ('+str(list_details.loc['user_reviews'])+')'
+   #text = list_details.loc['about'].split('. ')
+   about = list_details.loc['about']
+   #for sentence in text:
+   #   trans = ts.translate_text(sentence, from_language='en', to_language='id')
+   #   about = about + trans + ". "
+   review = str(list_details.loc['rating'])+' ('+str(list_details.loc['user_reviews'])+')'
    developer = list_details['developers'].split(',')
    publisher = list_details['publishers'].split(',')
    header_img = list_details.loc['header_image']
 
    return title, genres, tanggal, website, movies, list_media, about, review, developer, publisher, header_img
 
-# @st.cache_data
+@st.cache_data
 def get_recommendation_data(game_name):
     recommendations = hybrid_recommendation(game_name)
     title, genres, tanggal, website, movies, list_media, about, review, developer, publisher, header_img = selected_game_details(game_name)
