@@ -98,7 +98,7 @@ def genre_filtering(list_genre = []):
       filtered_games = df.sort_values('title', ascending=True).reset_index(drop = True)
    return filtered_games
 
-@st.cache_data
+# @st.cache_data
 def selected_game_details(game_name):
    game_id = games[games['title'] == game_name]['app_id'].values[0] 
    game_idx = games[games['app_id'] == game_id].index[0]
