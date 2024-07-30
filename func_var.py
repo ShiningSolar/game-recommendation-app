@@ -1,5 +1,6 @@
 import streamlit as st
 import pickle
+import translators as ts
 
 games = pickle.load(open('games.pkl', 'rb'))
 cosine_sim_content = pickle.load(open('cosine_sim_content.pkl', 'rb'))
@@ -116,8 +117,12 @@ def selected_game_details(game_name):
    else:
       movies = list_details.loc['movies']
       list_media = screenshots
-   about = list_details.loc['about']
-   review = str(list_details.loc['rating'])+' ('+str(list_details.loc['user_reviews'])+')'
+   text = list_details.loc['about'].split('. ')
+   about = ""
+   for sentence in text:
+      trans = ts.translate_text(sentence, from_language='en', to_language='id')
+      about = about + trans + ". "
+   review = str(ts.translate_text(list_details.loc['rating'], from_language='en', to_language='id'))+' ('+str(list_details.loc['user_reviews'])+')'
    developer = list_details['developers'].split(',')
    publisher = list_details['publishers'].split(',')
    header_img = list_details.loc['header_image']

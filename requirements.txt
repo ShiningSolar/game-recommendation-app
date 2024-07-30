@@ -6,3 +6,4 @@ numpy
 streamlit-pills
 streamlit-image-select
 streamlit-antd-components
+translators
